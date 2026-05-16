@@ -2,7 +2,7 @@
 // Configure the backend URL via VITE_API_URL or by setting `fitbrain.apiUrl`
 // in localStorage from the Settings page.
 
-const DEFAULT_API_URL = "http://127.0.0.1:8000";
+const DEFAULT_API_URL = "http://localhost:8000";
 
 export function getApiUrl(): string {
   if (typeof window !== "undefined") {
