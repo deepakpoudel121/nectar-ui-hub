@@ -17,7 +17,7 @@ export const Route = createFileRoute("/log")({
 });
 
 const EXAMPLES = [
-  "bench 5x5 80kg felt easy then incline db 3x10 26kg",
+  "bench 5x5 80kg felt easy then incline db 3x10 26s",
   "squat 100kg x5 x5 x5, leg press 4 plates 12 12 10, calves 3x20",
   "ran 5k in 28 mins easy zone 2",
 ];
