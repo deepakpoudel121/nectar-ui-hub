@@ -83,7 +83,6 @@ function LogPage() {
       const res = await Workouts.log(text) as WorkoutResponse;
       setResult(res);
       
-      // Handle different response scenarios
       if (res?.session_id) {
         if (res.is_valid) {
           toast.success("Workout logged successfully!");
@@ -226,42 +225,34 @@ function LogPage() {
             </div>
           )}
 
-          {/* Feedback Section */}
+          {/* Feedback Section - FIXED: Now rendering properties, not the object */}
           {result.feedback && (
             <div className="space-y-3 border-t border-border pt-4">
               <div className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">AI Coach Feedback</div>
               
-              {result.feedback.volume_notes && (
-                <div className="space-y-1">
-                  <div className="text-xs font-semibold text-primary">Volume Analysis</div>
-                  <div className="text-sm text-muted-foreground">{result.feedback.volume_notes}</div>
-                </div>
-              )}
+              <div className="space-y-1">
+                <div className="text-xs font-semibold text-primary">Volume Analysis</div>
+                <div className="text-sm text-muted-foreground">{result.feedback.volume_notes}</div>
+              </div>
               
-              {result.feedback.balance_notes && (
-                <div className="space-y-1">
-                  <div className="text-xs font-semibold text-primary">Balance Analysis</div>
-                  <div className="text-sm text-muted-foreground">{result.feedback.balance_notes}</div>
-                </div>
-              )}
+              <div className="space-y-1">
+                <div className="text-xs font-semibold text-primary">Balance Analysis</div>
+                <div className="text-sm text-muted-foreground">{result.feedback.balance_notes}</div>
+              </div>
               
-              {result.feedback.coaching_tip && (
-                <div className="bg-primary/5 border-l-2 border-primary pl-3 py-2">
-                  <div className="text-xs font-semibold text-primary">💡 Coaching Tip</div>
-                  <div className="text-sm">{result.feedback.coaching_tip}</div>
-                </div>
-              )}
+              <div className="bg-primary/5 border-l-2 border-primary pl-3 py-2">
+                <div className="text-xs font-semibold text-primary">💡 Coaching Tip</div>
+                <div className="text-sm">{result.feedback.coaching_tip}</div>
+              </div>
               
-              {result.feedback.summary && (
-                <div className="space-y-1">
-                  <div className="text-xs font-semibold text-primary">Summary</div>
-                  <div className="text-sm">{result.feedback.summary}</div>
-                </div>
-              )}
+              <div className="space-y-1">
+                <div className="text-xs font-semibold text-primary">Summary</div>
+                <div className="text-sm">{result.feedback.summary}</div>
+              </div>
             </div>
           )}
 
-          {/* Workout History (if available) */}
+          {/* Workout History */}
           {result.workout_history && result.workout_history.length > 0 && (
             <div className="space-y-2 border-t border-border pt-4">
               <div className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">Recent History</div>
